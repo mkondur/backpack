@@ -1,26 +1,28 @@
 {
-  "private": true,
-  "devDependencies": {
-    "lerna": "^2.9.0"
+  "name": "backpack-core",
+  "version": "0.8.0-0",
+  "description": "Backpack is a minimalistic build system for Node.js",
+  "repository": "palmerhq/backpack",
+  "author": "@jaredpalmer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/palmerhq/backpack/issues"
   },
-  "scripts": {
-    "bootstrap-workaround": "lerna exec yarn && lerna link && lerna run prepublish && lerna run prepare",
-    "postinstall": "yarn bootstrap-workaround",
-    "bootstrap": "lerna bootstrap",
-    "clean": "lerna clean",
-    "purge-lock-files": "rm -rf ./yarn.lock && rm -rf ./**/**/yarn.lock",
-    "purge-modules": "lerna clean --yes && rm -rf ./node_modules & rm -rf ./tools",
-    "purge": "yarn purge-modules && yarn purge-lock-files",
-    "reinstall": "yarn purge && yarn",
-    "build": "lerna run build --stream --parallel"
+  "bin": {
+    "backpack": "./bin/backpack"
   },
   "dependencies": {
     "@babel/core": "7.0.0-beta.39",
-    "@babel/preset-stage-0": "^7.0.0-beta.37",
-    "express": "^4.16.2"
-  },
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ]
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "v8.0.0-beta.0",
+    "babel-preset-backpack": "^0.5.0",
+    "cross-spawn": "^5.0.1",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "json-loader": "^0.5.7",
+    "nodemon": "^1.11.0",
+    "ramda": "^0.23.0",
+    "source-map-support": "^0.4.15",
+    "webpack": "^4.17.1",
+    "webpack-node-externals": "^1.7.2"
+  }
 }
